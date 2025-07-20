@@ -8,7 +8,7 @@ songs_df = pd.read_csv(data_path)
 
 # Create Flask app
 app = Flask(__name__)
-app.secret_key = 'AIzaSyAKmBhkhRrgbe61bvJ_qiZkGfQj6oY4WzI'  # Required for flashing messages 
+app.secret_key = 'YOUTUBE API KEY'  # Required for flashing messages 
 
 # YouTube API Configuration
 API_KEY = 'AIzaSyB25ysBKFGanrrAt2on2gKBd1BX4anR-SU'  # Replace with your actual API key  
