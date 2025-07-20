@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #121212, #282828);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 450px;
+            margin: 100px auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 85%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 25px;
+            border: none;
+            text-align: center;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+        }
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #1db954;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #1ed760;
+        }
+        .icon {
+            font-size: 50px;
+            color: #1db954;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <i class="fas fa-music icon"></i>
+        <h1>Find Your Favorite Music</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <script>alert("{{ message }}");</script>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="/search" method="post">
+            <input type="text" name="query" id="query" placeholder="Type song name or artist..." required>
+            <button type="submit"><i class="fas fa-search"></i> Search</button>
+        </form>
+    </div>
+</body>
+</html>
